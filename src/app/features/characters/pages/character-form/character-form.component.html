@@ -1,0 +1,22 @@
+<h2>{{ isEditMode ? 'Editar Personagem' : 'Novo Personagem' }}</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+  <label>
+    Nome:
+    <input formControlName="name" />
+  </label>
+
+  <label>
+    Espécie:
+    <input formControlName="species" />
+  </label>
+
+  <label>
+    Imagem (URL):
+    <input formControlName="image" />
+  </label>
+
+  <button type="submit" [disabled]="form.invalid">
+    {{ isEditMode ? 'Salvar Alterações' : 'Criar' }}
+  </button>
+</form>
