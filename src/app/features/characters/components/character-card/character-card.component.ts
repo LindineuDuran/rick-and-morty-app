@@ -14,6 +14,7 @@ export class CharacterCardComponent {
 
   @Output() view = new EventEmitter<number>();
   @Output() edit = new EventEmitter<Character>();
+  @Output() delete = new EventEmitter<number>();
 
   // Evento de clique no botão "Editar"
   onEditClick(): void {
@@ -22,5 +23,13 @@ export class CharacterCardComponent {
 
   onCardClick(): void {
     this.view.emit(this.character.id);
+  }
+
+  onDeleteClick(): void {
+    if (confirm(`Tem certeza que deseja excluir o personagem "${this.character.name}"?`)) {
+      console.log('Simulando exclusão do personagem com id:', this.character.id);
+      this.delete.emit(this.character.id);
+      alert('Personagem excluído com sucesso!');
+    }
   }
 }
