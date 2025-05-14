@@ -6,6 +6,11 @@
   />
 </div>
 
+<!-- Novo botão -->
+<div class="new-character-button">
+  <button (click)="createNewCharacter()">Novo Personagem</button>
+</div>
+
 <div class="grid">
   <app-character-card
     *ngFor="let character of state.characters()"

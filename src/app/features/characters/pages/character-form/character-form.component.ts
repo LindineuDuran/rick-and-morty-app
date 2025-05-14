@@ -63,8 +63,8 @@ export class CharacterFormComponent implements OnInit {
 
   prefillFakeCharacter() {
     this.form.patchValue({
-      name: ['', Validators.required],
-      status: [''],
+      name: ['AAA'],
+      status: ['BBB'],
       species: [''],
       type: [''],
       gender: [''],
