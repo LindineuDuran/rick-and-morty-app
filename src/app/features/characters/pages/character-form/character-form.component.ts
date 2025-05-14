@@ -28,7 +28,6 @@ export class CharacterFormComponent implements OnInit {
     this.characterId = Number(this.route.snapshot.paramMap.get('id'));
     this.isEditMode = !!this.characterId;
 
-
     this.form = this.fb.group({
       name: ['', Validators.required],
       status: [''],
@@ -81,7 +80,27 @@ export class CharacterFormComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log(this.isEditMode ? 'Editando personagem:' : 'Criando personagem:', this.form.value);
+      const payload = this.form.value;
+
+      if (this.isEditMode) {
+        // Simula edição
+        console.log('🛠 Editando personagem:', payload);
+      } else {
+        // Simula criação
+        console.log('✨ Criando novo personagem:', payload);
+      }
+
+      // Simula navegação após salvar
+      setTimeout(() => {
+        alert(this.isEditMode ? 'Personagem atualizado com sucesso!' : 'Personagem criado com sucesso!');
+        this.router.navigate(['/characters']);
+      }, 500);
+    } else {
+      alert('Formulário inválido!');
     }
   }
+
+  onCancel() {
+  this.router.navigate(['/characters']);
+}
 }
