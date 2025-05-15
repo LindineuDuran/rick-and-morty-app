@@ -4,6 +4,7 @@ import { CharacterService } from '../../../../core/services/character.service';
 import { Character } from '../../../../core/models/character.model';
 import { CommonModule } from '@angular/common';
 import { NgIf } from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-character-detail',
@@ -17,7 +18,8 @@ export class CharacterDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private characterService: CharacterService
+    private characterService: CharacterService,
+    private location: Location // ⬅️ injetando Location
   ) {}
 
   ngOnInit(): void {
@@ -27,5 +29,9 @@ export class CharacterDetailComponent implements OnInit {
         this.character = data;
       });
     }
+  }
+
+  goBack(): void {
+    this.location.back(); // ⬅️ método que volta à página anterior
   }
 }

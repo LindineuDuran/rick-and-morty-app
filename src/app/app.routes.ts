@@ -20,12 +20,6 @@ export const appRoutes: Routes = [
             .then(m => m.CharacterFormComponent)
   },
   {
-    path: 'new',
-    loadComponent: () =>
-      import('./features/characters/pages/character-form/character-form.component')
-            .then(m => m.CharacterFormComponent)
-  },
-  {
     path: 'edit/:id',
     loadComponent: () =>
       import('./features/characters/pages/character-form/character-form.component')

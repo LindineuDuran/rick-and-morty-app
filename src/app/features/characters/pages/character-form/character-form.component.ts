@@ -63,8 +63,8 @@ export class CharacterFormComponent implements OnInit {
 
   prefillFakeCharacter() {
     this.form.patchValue({
-      name: ['AAA'],
-      status: ['BBB'],
+      name: [''],
+      status: [''],
       species: [''],
       type: [''],
       gender: [''],
@@ -102,5 +102,5 @@ export class CharacterFormComponent implements OnInit {
 
   onCancel() {
   this.router.navigate(['/characters']);
-}
+  }
 }
